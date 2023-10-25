@@ -1,0 +1,9 @@
+# ninja log v5
+294	1813	7199198326875343	build.ninja	dd4319e9b48e88f4
+0	1346	7199198341487237	CMakeFiles/ProyectoEstructuras.dir/matrizDispersa.cpp.obj	8534d19cdff30d87
+3	5826	7199198386466732	CMakeFiles/ProyectoEstructuras.dir/main.cpp.obj	372d023c6330affe
+5826	6986	7199198398045934	ProyectoEstructuras.exe	43bf4f2b58e4300
+3	637	7199205923994498	CMakeFiles/ProyectoEstructuras.dir/main.cpp.obj	372d023c6330affe
+637	914	7199205926734963	ProyectoEstructuras.exe	43bf4f2b58e4300
+2	507	7199206298941146	CMakeFiles/ProyectoEstructuras.dir/main.cpp.obj	372d023c6330affe
+507	706	7199206300891585	ProyectoEstructuras.exe	43bf4f2b58e4300
