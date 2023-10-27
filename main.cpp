@@ -70,19 +70,19 @@ void havingFunWithMatrices(int num) {
     while(numComandos--) {
         cin >> comandos;
 
-        if (comandos == "row") {
-            cin >> valorUno >> valorDos;
-            row(matriz, valorUno, valorDos, tamMatriz);
-        } else if (comandos == "col") {
-            cin >> valorUno >> valorDos;
-            col(matriz, valorUno, valorDos, tamMatriz);
-        } else if (comandos == "inc") {
-            inc(matriz, tamMatriz);
-        } else if (comandos == "dec") {
-            dec(matriz, tamMatriz);
-        } else if (comandos == "transpose") {
-            transpose(matriz, tamMatriz);
-        }
+//        if (comandos == "row") {
+//            cin >> valorUno >> valorDos;
+//            row(matriz, valorUno, valorDos, tamMatriz);
+//        } else if (comandos == "col") {
+//            cin >> valorUno >> valorDos;
+//            col(matriz, valorUno, valorDos, tamMatriz);
+//        } else if (comandos == "inc") {
+//            inc(matriz, tamMatriz);
+//        } else if (comandos == "dec") {
+//            dec(matriz, tamMatriz);
+//        } else if (comandos == "transpose") {
+//            transpose(matriz, tamMatriz);
+//        }
     }
 
     cout << "Case #" << num + 1 << endl;
@@ -107,33 +107,38 @@ void jugarMatriz() {
     int tamMatriz;
     cin >> opcion;
     cin >> tamMatriz;
+    vector<vector<int>> matriz(tamMatriz, vector<int>(tamMatriz));
+    list<list<int>> matrizLista;
+
+    int valor;
+
+//    for (int i = 0; i < tamMatriz; i++) {
+//        for (int x = 0; x < tamMatriz; x++) {
+//            cin >> valor;
+//            matriz[i][x] = valor;
+//        }
+//    }
+//
+//    MatrizDispersa matrizDispersa(matriz);
+
+    for (int i = 0; i < tamMatriz; i++) {
+        list<int> filaMatriz;
+        for (int j = 0; j < tamMatriz; j++) {
+            cin >> valor;
+            filaMatriz.push_back(valor);
+        }
+        matrizLista.push_back(filaMatriz);
+    }
+
+    MatrizDispersa matrizDispersa(matrizLista);
+
+    cout << "15. getMaxLista" << endl;
+    cin >> opcion;
 
     switch (opcion) {
-        case 1: {
-            vector<vector<int>> matriz(tamMatriz, vector<int>(tamMatriz));
-            int valor;
-
-            for (int i = 0; i < tamMatriz; i++) {
-                for (int x = 0; x < tamMatriz; x++) {
-                    cin >> valor;
-                    matriz[i][x] = valor;
-                }
-            }
-            break;
-        }
-
-        case 2: {
-            list<list<int>> matriz;
-            int valor;
-
-            for (int i = 0; i < tamMatriz; i++) {
-                list<int> filaMatriz;
-                for (int j = 0; j < tamMatriz; j++) {
-                    cin >> valor;
-                    filaMatriz.push_back(valor);
-                }
-                matriz.push_back(filaMatriz);
-            }
+        case 15: {
+            int max = matrizDispersa.getMax();
+            cout << max << endl;
             break;
         }
 

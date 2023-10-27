@@ -27,8 +27,8 @@ private:
     vector<int> columnas; //Este vector contiene las posiciones de las columbas donde hay valores en la MatrizDispersa
 public:
     // Constructores
-    MatrizDispersa(vector<vector<int>>& fullMatrix);
-    MatrizDispersa(list<list<int>>& fullMatrix);
+    MatrizDispersa(vector<vector<int>>& fullMatrix);                       //Comprobado
+    MatrizDispersa(list<list<int>>& fullMatrix);                           //Comprobado
     MatrizDispersa(MatrizDispersa& otro);
 
     // Operaciones
@@ -46,14 +46,14 @@ public:
     void add(MatrizDispersa& otro);
     void printMatrix(string& separador);
     vector<int> productVector(vector<int>& vec);
-    int getMax();
+    int getMax();                                                         //Comprobado
     MatrizDispersa getTranspose();
     static MatrizDispersa addMatrixList(list<MatrizDispersa>& matrices);
 
     // Sobrecarga de operadores
-    MatrizDispersa operator+(MatrizDispersa& otro);
-    MatrizDispersa operator*(MatrizDispersa& otro);
-    bool operator==(MatrizDispersa& otro);
+    MatrizDispersa operator+(MatrizDispersa& otro);                       //Por terminar
+    MatrizDispersa operator*(MatrizDispersa& otro);                       //Por terminar
+    bool operator==(MatrizDispersa& otro);                                //Por terminar
 };
 
 #endif //PROYECTOESTRUCTURAS_MATRIZDISPERSA_H

@@ -9,6 +9,9 @@
 #include <vector>
 #include <iostream>
 #include <list>
+#include <vector>
+
+using namespace std;
 
 void havingFunWithMatrices(int num);
 void row(vector<vector<int>>& matriz, int valorUno, int valorDos, int tamMatriz);

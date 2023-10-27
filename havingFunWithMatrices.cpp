@@ -10,11 +10,13 @@
 #include <vector>
 #include <list>
 
-void row(vector<vector<int>>& matriz, int valorUno, int valorDos, int tamMatriz) {
-}
+using namespace std;
 
-void col(vector<vector<int>>& matriz, int valorUno, int valorDos, int tamMatriz) {
-}
+//void row(vector<vector<int>>& matriz, int valorUno, int valorDos, int tamMatriz) {
+//}
+
+//void col(vector<vector<int>>& matriz, int valorUno, int valorDos, int tamMatriz) {
+//}
 
 /**
  * @brief Se incrementa en 1 el valor de todas las posiciones de la matriz
@@ -45,5 +47,5 @@ void dec(vector<vector<int>>& matriz, int tamMatriz) {
 }
 
 
-void transpose(vector<vector<int>>& matriz, int tamMatriz) {
-}
+//void transpose(vector<vector<int>>& matriz, int tamMatriz) {
+//}

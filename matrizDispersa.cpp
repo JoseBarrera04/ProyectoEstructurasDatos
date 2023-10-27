@@ -6,9 +6,9 @@
 #include "matrizDispersa.h"
 
 //Librerias
-//#include <iostream>
 #include <vector>
 #include <list>
+#include <iostream>
 
 using namespace std;
 
@@ -184,6 +184,9 @@ void MatrizDispersa::add(MatrizDispersa &otro) {
 }
 
 void MatrizDispersa::printMatrix(string &separador) {
+    for (int i = 0; i < valores.size(); i++) {
+        cout << valores[i] << ", " << endl;
+    }
 }
 
 vector<int> MatrizDispersa::productVector(vector<int> &vec) {
@@ -197,7 +200,7 @@ vector<int> MatrizDispersa::productVector(vector<int> &vec) {
 int MatrizDispersa::getMax() {
     int resultado = 1;                                                  // 1
 
-    for (int i = 0; valores.size(); i++) {                              // n + 1
+    for (int i = 0; i < valores.size(); i++) {                          // n + 1
         resultado = (valores[i] > resultado) ? valores[i] : resultado;  // n
     }
 
