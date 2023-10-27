@@ -1,35 +1,53 @@
 /*
  * Jose Barrera Ramos
- * Esteban
  * Proyecto Estructura de Datos / Have Fun With Matrices
  */
 
 #include "matrizDispersa.h"
+#include "havingFunWithMatrices.h"
 
+//Librerias
 #include <iostream>
 #include <vector>
-#include <list>
+//#include <list>
+
+void jugarMatriz();
 
 using namespace std;
 
-void havingFunWithMatrices(int num);
-void row(vector<vector<int>>& matriz, int valorUno, int valorDos, int tamMatriz);
-void col(vector<vector<int>>& matriz, int valorUno, int valorDos, int tamMatriz);
-void inc(vector<vector<int>>& matriz, int tamMatriz);
-void dec(vector<vector<int>>& matriz, int tamMatriz);
-void transpose(vector<vector<int>>& matriz, int tamMatriz);
-
 int main() {
-    int numCasos;
-    cin >> numCasos;
+    int opcion = -1;
+    cin >> opcion;
 
-    for (int i = 0; i < numCasos; i++) {
-        havingFunWithMatrices(i);
+    switch (opcion) {
+        case 1: {
+            jugarMatriz();
+            break;
+        }
+
+        case 2: {
+            int numCasos;
+            cin >> numCasos;
+
+            for (int i = 0; i < numCasos; i++) {
+                havingFunWithMatrices(i);
+            }
+            break;
+        }
+
+        default:
+            cout << "xd";
+            break;
     }
 
     return 0;
 }
 
+/**
+ * @brief Operacion encargada de gestionar todas las acciones
+ * @param num
+ * @note Complejidad O()
+ */
 void havingFunWithMatrices(int num) {
     int tamMatriz;
     cin >> tamMatriz;
@@ -78,28 +96,49 @@ void havingFunWithMatrices(int num) {
     cout << endl;
 }
 
-void row(vector<vector<int>>& matriz, int valorUno, int valorDos, int tamMatriz) {
-}
+/**
+ * @brief
+ * @note Complejidad O()
+ */
+void jugarMatriz() {
+    cout << "1.Vectores de Vectores" << endl;
+    cout << "2.Listas de Listas" << endl;
+    int opcion = -1;
+    int tamMatriz;
+    cin >> opcion;
+    cin >> tamMatriz;
 
-void col(vector<vector<int>>& matriz, int valorUno, int valorDos, int tamMatriz) {
-}
+    switch (opcion) {
+        case 1: {
+            vector<vector<int>> matriz(tamMatriz, vector<int>(tamMatriz));
+            int valor;
 
-void inc(vector<vector<int>>& matriz, int tamMatriz) {
-    for (int i = 0; i < tamMatriz; i++) {
-        for (int x = 0; x < tamMatriz; x++) {
-            matriz[i][x] = (matriz[i][x] + 1) % 10;
+            for (int i = 0; i < tamMatriz; i++) {
+                for (int x = 0; x < tamMatriz; x++) {
+                    cin >> valor;
+                    matriz[i][x] = valor;
+                }
+            }
+            break;
         }
-    }
-}
 
-void dec(vector<vector<int>>& matriz, int tamMatriz) {
-    for (int i = 0; i < tamMatriz; i++) {
-        for (int x = 0; x < tamMatriz; x++) {
-            matriz[i][x] = (matriz[i][x] + 9) % 10;
+        case 2: {
+            list<list<int>> matriz;
+            int valor;
+
+            for (int i = 0; i < tamMatriz; i++) {
+                list<int> filaMatriz;
+                for (int j = 0; j < tamMatriz; j++) {
+                    cin >> valor;
+                    filaMatriz.push_back(valor);
+                }
+                matriz.push_back(filaMatriz);
+            }
+            break;
         }
+
+        default:
+            cout << "xd" << endl;
+            break;
     }
-}
-
-
-void transpose(vector<vector<int>>& matriz, int tamMatriz) {
 }

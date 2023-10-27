@@ -61,6 +61,12 @@ build CMakeFiles/ProyectoEstructuras.dir/matrizDispersa.cpp.obj: CXX_COMPILER__P
   OBJECT_DIR = CMakeFiles\ProyectoEstructuras.dir
   OBJECT_FILE_DIR = CMakeFiles\ProyectoEstructuras.dir
 
+build CMakeFiles/ProyectoEstructuras.dir/havingFunWithMatrices.cpp.obj: CXX_COMPILER__ProyectoEstructuras_unscanned_Debug C$:/Users/Usuario/Desktop/Algoritmos$ Jose$ Barrera$ Ramos/Proyectos/ProyectoEstructuras/havingFunWithMatrices.cpp || cmake_object_order_depends_target_ProyectoEstructuras
+  DEP_FILE = CMakeFiles\ProyectoEstructuras.dir\havingFunWithMatrices.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ProyectoEstructuras.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProyectoEstructuras.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ProyectoEstructuras
@@ -69,7 +75,7 @@ build CMakeFiles/ProyectoEstructuras.dir/matrizDispersa.cpp.obj: CXX_COMPILER__P
 #############################################
 # Link the executable ProyectoEstructuras.exe
 
-build ProyectoEstructuras.exe: CXX_EXECUTABLE_LINKER__ProyectoEstructuras_Debug CMakeFiles/ProyectoEstructuras.dir/main.cpp.obj CMakeFiles/ProyectoEstructuras.dir/matrizDispersa.cpp.obj
+build ProyectoEstructuras.exe: CXX_EXECUTABLE_LINKER__ProyectoEstructuras_Debug CMakeFiles/ProyectoEstructuras.dir/main.cpp.obj CMakeFiles/ProyectoEstructuras.dir/matrizDispersa.cpp.obj CMakeFiles/ProyectoEstructuras.dir/havingFunWithMatrices.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ProyectoEstructuras.dir
