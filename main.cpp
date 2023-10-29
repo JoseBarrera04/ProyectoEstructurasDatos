@@ -3,13 +3,15 @@
  * Proyecto Estructura de Datos / Have Fun With Matrices
  */
 
+//Encabezados
 #include "matrizDispersa.h"
 #include "havingFunWithMatrices.h"
+#include "matrizDispersaLista.h"
 
 //Librerias
 #include <iostream>
 #include <vector>
-//#include <list>
+#include <list>
 
 void jugarMatriz();
 
@@ -35,8 +37,13 @@ int main() {
             break;
         }
 
+        case 3: {
+            //jugarMatrizLista();
+            break;
+        }
+
         default:
-            cout << "xd";
+            cout << "Incorrecto" << endl;
             break;
     }
 
@@ -69,81 +76,49 @@ void havingFunWithMatrices(int num) {
 
     while(numComandos--) {
         cin >> comandos;
-
-//        if (comandos == "row") {
-//            cin >> valorUno >> valorDos;
-//            row(matriz, valorUno, valorDos, tamMatriz);
-//        } else if (comandos == "col") {
-//            cin >> valorUno >> valorDos;
-//            col(matriz, valorUno, valorDos, tamMatriz);
-//        } else if (comandos == "inc") {
-//            inc(matriz, tamMatriz);
-//        } else if (comandos == "dec") {
-//            dec(matriz, tamMatriz);
-//        } else if (comandos == "transpose") {
-//            transpose(matriz, tamMatriz);
-//        }
     }
-
-    cout << "Case #" << num + 1 << endl;
-
-    for (int i = 0; i < tamMatriz; i++) {
-        for (int x = 0; x < tamMatriz; x++) {
-            cout << matriz[i][x];
-        }
-        cout << endl;
-    }
-    cout << endl;
 }
 
 /**
- * @brief
+ * @brief Operacion para comprobar los requerimientos de Matriz Dispersa (Formato Coordenado)
  * @note Complejidad O()
  */
 void jugarMatriz() {
-    cout << "1.Vectores de Vectores" << endl;
-    cout << "2.Listas de Listas" << endl;
-    int opcion = -1;
-    int tamMatriz;
-    cin >> opcion;
-    cin >> tamMatriz;
-    vector<vector<int>> matriz(tamMatriz, vector<int>(tamMatriz));
-    list<list<int>> matrizLista;
-
-    int valor;
-
-//    for (int i = 0; i < tamMatriz; i++) {
-//        for (int x = 0; x < tamMatriz; x++) {
-//            cin >> valor;
-//            matriz[i][x] = valor;
-//        }
-//    }
-//
-//    MatrizDispersa matrizDispersa(matriz);
-
-    for (int i = 0; i < tamMatriz; i++) {
-        list<int> filaMatriz;
-        for (int j = 0; j < tamMatriz; j++) {
-            cin >> valor;
-            filaMatriz.push_back(valor);
-        }
-        matrizLista.push_back(filaMatriz);
+    int** matriz = new int*[3];
+    for (int i = 0; i < 3; i++) {
+        matriz[i] = new int[3];
     }
 
-    MatrizDispersa matrizDispersa(matrizLista);
-
-    cout << "15. getMaxLista" << endl;
-    cin >> opcion;
-
-    switch (opcion) {
-        case 15: {
-            int max = matrizDispersa.getMax();
-            cout << max << endl;
-            break;
+    int valor;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cin >> valor;
+            matriz[i][j] = valor;
         }
+    }
 
-        default:
-            cout << "xd" << endl;
-            break;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << matriz[i][j] << ", ";
+        }
+        cout << endl;
+    }
+
+    MatrizDispersa matrizDispersa(matriz);
+    matrizDispersa.printMatrix("-");
+
+//    cout << endl << endl;
+//    vector<vector<int>> rebuildMatriz;
+//    rebuildMatriz = matrizDispersa.rebuild();
+//    for (vector<int>& fila : rebuildMatriz) {
+//        for (int elemento : fila) {
+//            cout << elemento << ' ';
+//        }
+//        cout << endl;
+//    }
+
+    vector<int> disperseRow = matrizDispersa.getCol(0);
+    for (int i = 0; i < disperseRow.size(); i++) {
+        cout << disperseRow[i] << " ";
     }
 }

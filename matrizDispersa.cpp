@@ -28,6 +28,9 @@ MatrizDispersa::MatrizDispersa(vector<vector<int>> &fullMatrix) {
         }
     }
 
+    filasOriginal = fullMatrix.size();
+    columnasOriginal = fullMatrix[0].size();
+
 }
 
 /**
@@ -49,6 +52,29 @@ MatrizDispersa::MatrizDispersa(list<list<int>> &fullMatrix) {
         }
         i++;
     }
+
+    //filasOriginal = fullMatrix.size();
+    //columnasOriginal = fullMatrix[0].size();
+}
+
+/**
+ * @brief
+ * @param matriz
+ * @note Complejidad O()
+ */
+MatrizDispersa::MatrizDispersa(int** &matriz) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (matriz[i][j] != 0) {
+                valores.push_back(matriz[i][j]);
+                filas.push_back(i);
+                columnas.push_back(j);
+            }
+        }
+    }
+
+    filasOriginal = 3;
+    columnasOriginal = 3;
 }
 
 /**
@@ -61,8 +87,8 @@ MatrizDispersa::MatrizDispersa(MatrizDispersa &otro) {
     this->columnas = otro.columnas;
 }
 
-vector<vector<int>> MatrizDispersa::rebuild(int i, int j) {
-    vector<vector<int>> fullMatrix(i, vector<int>(j, 0));
+vector<vector<int>> MatrizDispersa::rebuild() {
+    vector<vector<int>> fullMatrix(filasOriginal, vector<int>(columnasOriginal, 0));
     for (int k = 0; k < filas.size(); k++) {
         fullMatrix[filas[k]][columnas[k]] = valores[k];
     }
@@ -134,12 +160,36 @@ list<int> MatrizDispersa::getColList(int j) {
 }
 
 vector<int> MatrizDispersa::getDisperseRow(int j) {
+    vector<int> resultado;
+    //vector<vector<int>> fullMatriz = rebuild();
+
+    for (int i = 0; i < filasOriginal; i++) {
+        if (filas[i] == j) {
+            resultado.push_back(valores[i]);
+        } else {
+            resultado.push_back(0);
+        }
+    }
+
+    return resultado;
 }
 
 list<int> MatrizDispersa::getDisperseRowList(int j) {
 }
 
 vector<int> MatrizDispersa::getDisperseCol(int j) {
+    vector<int> resultado;
+    //vector<vector<int>> fullMatriz = rebuild();
+
+    for (int i = 0; i < columnasOriginal; i++) {
+        if (columnas[i] == j) {
+            resultado.push_back(valores[i]);
+        } else {
+            resultado.push_back(0);
+        }
+    }
+
+    return resultado;
 }
 
 list<int> MatrizDispersa::getDisperseColList(int j) {
@@ -174,6 +224,11 @@ void MatrizDispersa::assign(int i, int j, int value) {
     }
 }
 
+/**
+ * @brief
+ * @param otro
+ * @note Complejidad O()
+ */
 void MatrizDispersa::add(MatrizDispersa &otro) {
     for (int k = 0; k < otro.filas.size(); k++) {
         int i = otro.filas[k];
@@ -183,9 +238,18 @@ void MatrizDispersa::add(MatrizDispersa &otro) {
     }
 }
 
-void MatrizDispersa::printMatrix(string &separador) {
+/**
+ * @brief
+ * @param separador
+ * @note Complejidad O()
+ */
+void MatrizDispersa::printMatrix(string separador) {
     for (int i = 0; i < valores.size(); i++) {
-        cout << valores[i] << ", " << endl;
+        if (i + 1 != valores.size()) {
+            cout << valores[i] << separador;
+        } else {
+            cout << valores[i] << endl;
+        }
     }
 }
 
@@ -214,6 +278,25 @@ MatrizDispersa MatrizDispersa::addMatrixList(list<MatrizDispersa> &matrices) {
 }
 
 MatrizDispersa MatrizDispersa::operator+(MatrizDispersa &otro) {
+    vector<vector<int>> matriz = rebuild();
+    vector<vector<int>> otraMatriz = otro.rebuild();
+
+    int tamano = 0, tamanoMenor = 0;
+    if (filasOriginal > otro.filasOriginal) {
+        tamano = filasOriginal;
+        tamanoMenor = otro.filasOriginal;
+    } else if (filasOriginal < otro.filasOriginal) {
+        tamano = otro.filasOriginal;
+        tamanoMenor = filasOriginal;
+    }
+
+    vector<vector<int>> sumaMatriz(tamano, vector<int>(tamano, 0));
+
+//    for (int i = 0; i < tamano; i++) {
+//        for (int j = 0; j < tamano; j++) {
+//            sumaMatriz[i][j] +=
+//        }
+//    }
 }
 
 MatrizDispersa MatrizDispersa::operator*(MatrizDispersa &otro) {

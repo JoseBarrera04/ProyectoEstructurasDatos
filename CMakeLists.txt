@@ -7,4 +7,6 @@ add_executable(ProyectoEstructuras main.cpp
         matrizDispersa.cpp
         matrizDispersa.h
         havingFunWithMatrices.h
-        havingFunWithMatrices.cpp)
+        havingFunWithMatrices.cpp
+        matrizDispersaLista.cpp
+        matrizDispersaLista.h)
