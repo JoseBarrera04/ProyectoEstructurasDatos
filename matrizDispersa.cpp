@@ -272,6 +272,16 @@ int MatrizDispersa::getMax() {
 }
 
 MatrizDispersa MatrizDispersa::getTranspose() {
+    vector<vector<int>> matrizTranspose(filasOriginal, vector<int>(filasOriginal, 0));
+    vector<vector<int>> matrizRebuild = rebuild();
+    for (int i = 0; i < filasOriginal; i++) {
+        for (int j = 0; j < columnasOriginal; j++) {
+            matrizTranspose[j][i] = matrizRebuild[i][j];
+        }
+    }
+
+    MatrizDispersa resultadoTranspose(matrizTranspose);
+    return resultadoTranspose;
 }
 
 MatrizDispersa MatrizDispersa::addMatrixList(list<MatrizDispersa> &matrices) {
@@ -281,25 +291,29 @@ MatrizDispersa MatrizDispersa::operator+(MatrizDispersa &otro) {
     vector<vector<int>> matriz = rebuild();
     vector<vector<int>> otraMatriz = otro.rebuild();
 
-    int tamano = 0, tamanoMenor = 0;
-    if (filasOriginal > otro.filasOriginal) {
-        tamano = filasOriginal;
-        tamanoMenor = otro.filasOriginal;
-    } else if (filasOriginal < otro.filasOriginal) {
-        tamano = otro.filasOriginal;
-        tamanoMenor = filasOriginal;
-    }
+    int tamano = (filasOriginal > otro.filasOriginal) ? filasOriginal : otro.filasOriginal;
 
     vector<vector<int>> sumaMatriz(tamano, vector<int>(tamano, 0));
 
-//    for (int i = 0; i < tamano; i++) {
-//        for (int j = 0; j < tamano; j++) {
-//            sumaMatriz[i][j] +=
-//        }
-//    }
+    for (int i = 0; i < matriz.size(); i++) {
+        for (int j = 0; j < matriz.size(); j++) {
+            sumaMatriz[i][j] += matriz[i][j];
+        }
+    }
+
+    for (int i = 0; i < otraMatriz.size(); i++) {
+        for (int j = 0; j < otraMatriz.size(); j++) {
+            sumaMatriz[i][j] += otraMatriz[i][j];
+        }
+    }
+
+    MatrizDispersa sumaMatrizDispersa(sumaMatriz);
+
+    return sumaMatrizDispersa;
 }
 
 MatrizDispersa MatrizDispersa::operator*(MatrizDispersa &otro) {
+
 }
 
 bool MatrizDispersa::operator==(MatrizDispersa &otro) {

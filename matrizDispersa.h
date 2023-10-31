@@ -40,19 +40,19 @@ public:
     vector<vector<int>> rebuild();                                         //Comprobado
     int get(int i, int j);                                                 //Comprobado
     vector<int> getRow(int j);                                             //Comprobado?
-    list<int> getRowList(int j);                                           //
+    list<int> getRowList(int j);                                           // --
     vector<int> getCol(int j);                                             //Comprobado
-    list<int> getColList(int j);                                           //
+    list<int> getColList(int j);                                           // --
     vector<int> getDisperseRow(int j);                                     //Comprobado?
-    list<int> getDisperseRowList(int j);                                   //
+    list<int> getDisperseRowList(int j);                                   // --
     vector<int> getDisperseCol(int j);                                     //Comprobado
-    list<int> getDisperseColList(int j);                                   //
+    list<int> getDisperseColList(int j);                                   // --
     void assign(int i, int j, int value);                                  //
     void add(MatrizDispersa& otro);                                        //
     void printMatrix(string separador);                                    //Comprobado
     vector<int> productVector(vector<int>& vec);                           //
     int getMax();                                                          //Comprobado
-    MatrizDispersa getTranspose();                                         //
+    MatrizDispersa getTranspose();                                         //Comprobado
     static MatrizDispersa addMatrixList(list<MatrizDispersa>& matrices);   //
 
     // Sobrecarga de operadores

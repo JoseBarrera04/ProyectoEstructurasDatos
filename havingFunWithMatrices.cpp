@@ -14,3 +14,23 @@
 #include <list>
 
 using namespace std;
+
+void row() {
+
+}
+
+void col() {
+
+}
+
+void inc() {
+
+}
+
+void dec() {
+
+}
+
+void transpose() {
+
+}

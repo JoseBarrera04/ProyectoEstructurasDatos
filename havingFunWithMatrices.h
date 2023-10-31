@@ -6,6 +6,9 @@
 #ifndef PROYECTOESTRUCTURAS_HAVINGFUNWITHMATRICES_H
 #define PROYECTOESTRUCTURAS_HAVINGFUNWITHMATRICES_H
 
+#include "matrizDispersa.h"
+#include "matrizDispersaLista.h"
+
 #include <vector>
 #include <iostream>
 #include <list>
@@ -14,10 +17,10 @@
 using namespace std;
 
 void havingFunWithMatrices(int num);
-void row(vector<vector<int>>& matriz, int valorUno, int valorDos, int tamMatriz);
-void col(vector<vector<int>>& matriz, int valorUno, int valorDos, int tamMatriz);
-void inc(vector<vector<int>>& matriz, int tamMatriz);
-void dec(vector<vector<int>>& matriz, int tamMatriz);
-void transpose(vector<vector<int>>& matriz, int tamMatriz);
+void row(MatrizDispersa& matrizDispersa, int valor1, int valor2);
+void col(MatrizDispersa& matrizDispersa, int valor1, int valor2);
+void inc(MatrizDispersa& matrizDispersa);
+void dec(MatrizDispersa& matrizDispersa);
+void transpose(MatrizDispersa& matrizDispersa);
 
 #endif //PROYECTOESTRUCTURAS_HAVINGFUNWITHMATRICES_H

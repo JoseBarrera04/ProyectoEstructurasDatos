@@ -68,14 +68,39 @@ void havingFunWithMatrices(int num) {
         }
     }
 
+    MatrizDispersa matrizDispersa(matriz);
+
     int numComandos;
     cin >> numComandos;
     string comandos;
-    int valorUno;
-    int valorDos;
+    int valor1, valor2;
 
     while(numComandos--) {
         cin >> comandos;
+
+        if (comandos == "row") {
+            cin >> valor1 >> valor2;
+            row(matrizDispersa, valor1, valor2);
+        } else if (comandos == "col") {
+            cin >> valor1, valor2;
+            col(matrizDispersa, valor1, valor2);
+        } else if (comandos == "inc") {
+            inc(matrizDispersa);
+        } else if (comandos == "dec") {
+            dec(matrizDispersa);
+        } else if (comandos == "transpose") {
+            transpose(matrizDispersa);
+        }
+    }
+
+    cout << "Case #" << num + 1;
+    vector<vector<int>> matrizRebuild = matrizDispersa.rebuild();
+    int tamMatrizDispersa = matrizRebuild.size();
+
+    for (int i = 0; i < tamMatrizDispersa; i++) {
+        for (int j = 0; j < tamMatrizDispersa; i++) {
+            //cout <<
+        }
     }
 }
 
@@ -105,20 +130,14 @@ void jugarMatriz() {
     }
 
     MatrizDispersa matrizDispersa(matriz);
-    matrizDispersa.printMatrix("-");
+    MatrizDispersa matrizTranspose(matrizDispersa.getTranspose());
 
-//    cout << endl << endl;
-//    vector<vector<int>> rebuildMatriz;
-//    rebuildMatriz = matrizDispersa.rebuild();
-//    for (vector<int>& fila : rebuildMatriz) {
-//        for (int elemento : fila) {
-//            cout << elemento << ' ';
-//        }
-//        cout << endl;
-//    }
+    vector<vector<int>> transposeResult = matrizTranspose.rebuild();
 
-    vector<int> disperseRow = matrizDispersa.getCol(0);
-    for (int i = 0; i < disperseRow.size(); i++) {
-        cout << disperseRow[i] << " ";
+    for(int i = 0; i < transposeResult.size(); i++) {
+        for (int j = 0; j < transposeResult.size(); j++) {
+            cout << transposeResult[i][j] << " ";
+        }
+        cout << endl;
     }
 }
