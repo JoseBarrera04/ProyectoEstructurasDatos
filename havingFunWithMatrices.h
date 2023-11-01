@@ -12,7 +12,6 @@
 #include <vector>
 #include <iostream>
 #include <list>
-#include <vector>
 
 using namespace std;
 
@@ -22,5 +21,6 @@ void col(MatrizDispersa& matrizDispersa, int valor1, int valor2);
 void inc(MatrizDispersa& matrizDispersa);
 void dec(MatrizDispersa& matrizDispersa);
 void transpose(MatrizDispersa& matrizDispersa);
+void actualizarMatriz(MatrizDispersa& original, vector<vector<int>>& nuevaMatriz);
 
 #endif //PROYECTOESTRUCTURAS_HAVINGFUNWITHMATRICES_H

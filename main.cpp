@@ -98,7 +98,7 @@ void havingFunWithMatrices(int num) {
     int tamMatrizDispersa = matrizRebuild.size();
 
     for (int i = 0; i < tamMatrizDispersa; i++) {
-        for (int j = 0; j < tamMatrizDispersa; i++) {
+        for (int j = 0; j < tamMatrizDispersa; j++) {
             //cout <<
         }
     }
