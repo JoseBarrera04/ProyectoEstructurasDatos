@@ -35,30 +35,6 @@ MatrizDispersa::MatrizDispersa(vector<vector<int>> &fullMatrix) {
 
 /**
  * @brief
- * @param fullMatrix
- * @note Complejidad O()
- */
-MatrizDispersa::MatrizDispersa(list<list<int>> &fullMatrix) {
-    int i = 0;
-    for (list<int>& row : fullMatrix) {
-        int j = 0;
-        for (int value : row) {
-            if (value != 0) {
-                valores.push_back(value);
-                filas.push_back(i);
-                columnas.push_back(j);
-            }
-            j++;
-        }
-        i++;
-    }
-
-    //filasOriginal = fullMatrix.size();
-    //columnasOriginal = fullMatrix[0].size();
-}
-
-/**
- * @brief
  * @param matriz
  * @note Complejidad O()
  */
